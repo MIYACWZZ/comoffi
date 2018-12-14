@@ -19,11 +19,45 @@
     <title>添加联系人</title>
 </head>
 <body>
-<form>
-    姓名:<input type="text" placeholder="" ><br/>
-    电话:<input type="text" placeholder="" ><br/>
-    手机:<input type="text" placeholder="" ><br/>
-    QQ:<input type="text" placeholder="" ><br/>
+<script type="text/javascript">
+$(function(){
+    $("#addContact").click(function(){
+        //获取数据
+        var name = $("#name").val();
+        var tel = $("#tel").val();
+        var phone = $("#phone").val();
+        var qq = $("#qq").val();
+        //联系人json对象
+        var contactEntity = {
+            "name" : name,
+            "tel" : tel,
+            "phone" : phone,
+            "qq" : qq
+        };
+        $.ajax({
+            url : "/addContData",
+            timeout : 2000,
+            type : "post",
+            contentType : "application/json charset=utf-8",
+            data : JSON.stringify(contactEntity),
+            success : function (data) {
+                alert(data)
+            },
+            error : function () {
+                alert("添加失败")
+            }
+        })
+    })
+    }
+)
+</script>
+//填写联系人详情
+<form method="post" >
+    姓名:<input id="name" type="text" class="form-control form-control-lg" placeholder="输入姓名" required><br/><br/>
+    电话:<input id="tel" type="text" class="form-control form-control-lg" placeholder="输入电话" required><br/><br/>
+    手机:<input id="phone" type="text" class="form-control form-control-lg" placeholder="输入手机" required><br/><br/>
+    QQ:<input id="qq" type="text" class="form-control form-control-lg" placeholder="输入QQ" required><br/><br/>
+    <input type="button" id="addContact" value="添加联系人">
 </form>
 
 <!-- Optional JavaScript -->

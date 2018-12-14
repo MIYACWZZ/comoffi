@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <!--数据库连接-->
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="connection.url">jdbc:mysql://localhost:3306/official</property>
+
+    <!--配置Hibernate的基本信息-->
+    <!--在控制台打印sql-->
+    <property name="show_sql">true</property>
+    <!--对sql格式化-->
+    <property name="format_sql">true</property>
+    <!--指定生成数据表策略（在数据库中自动生成表）-->
+    <property name="hbm2ddl.auto">update</property>
+    <!--Hibernate数据库方言-->
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect </property>
+
+
+    <!--==============C3P0的配置=============-->
+    <!-- 最小連接數 -->
+    <property name="hibernate.c3p0.min_size">5</property>
+    <!-- 最大連接數 -->
+    <property name="hibernate.c3p0.max_size">20</property>
+    <!-- 多久會把無用的連接視為timeout並移除到min_size的連接數量，單位毫秒 -->
+    <property name="hibernate.c3p0.timeout">300</property>
+    <!-- 最大的PreparedStatement的數量 -->
+    <property name="hibernate.c3p0.max_statements">50</property>
+    <!-- 多久進行空閒連接的檢查，確定連接還存在，例如有無被Database端關掉，單位是秒-->
+    <property name="hibernate.c3p0.idle_test_period">3000</property>
+    <!--======================================-->
+
+
+    <!--指定关联的实体类的.hbm.xml文件-->
+    <mapping resource="ContactEntity.hbm.xml"/>
+    <mapping class="com.offi.entity.ContactEntity"/>
+
+
+
+  </session-factory>
+</hibernate-configuration>
