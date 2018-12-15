@@ -4,7 +4,7 @@
          version="3.0">
     <display-name>Archetype Created Web Application</display-name>
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>/WEB-INF/jsp/index.jsp</welcome-file>
     </welcome-file-list>
     <!--配置Spring-->
     <!-- Spring配置。（必须配，要不会找不到bean） -->

@@ -6,7 +6,7 @@
   <session-factory>
     <!--数据库连接-->
     <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="connection.url">jdbc:mysql://localhost:3306/official</property>
+    <property name="connection.url">jdbc:mysql://localhost:3306/official?useSSL=false</property>
 
     <!--配置Hibernate的基本信息-->
     <!--在控制台打印sql-->
@@ -34,7 +34,7 @@
 
 
     <!--指定关联的实体类的.hbm.xml文件-->
-    <mapping resource="ContactEntity.hbm.xml"/>
+    <mapping resource="mapping/ContactEntity.hbm.xml"/>
     <mapping class="com.offi.entity.ContactEntity"/>
 
 
